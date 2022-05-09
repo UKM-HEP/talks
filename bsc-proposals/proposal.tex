@@ -1,0 +1,46 @@
+\documentclass[bibliography=totoc]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[a4paper]{geometry}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage[
+    hyperref=true,
+    url=true,
+    isbn=false,
+    backref=false,
+    style=numeric,
+    block=none,
+    backend=bibtex,
+    doi=true,
+    eprint=true,
+    sorting=none
+]{biblatex}
+\bibliography{references.bib}
+\AtEveryBibitem{\clearfield{pages}}
+
+\title{Bachelor Thesis Proposal : \\ The Study of Physics Object Measurements using Tag and Probe Method With CMS Open Data}
+\author{Siew-Yan Hoh}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Executive Summary of the Research Proposal}
+
+Precision measurements of standard model (SM) processes at the Large Hadron Collider (LHC) made tremendous progress in recent years~\cite{ATLAS:2016nqi,CMS:2014pkt,CMS:2013hon,ATLAS:2016rnf,ATLAS:2015iiu}. Notably, the per-mil precision archieved is attributed to the technological advancement of Monte Carlo (MC) generators and the detector calibration technique used to improve the modelling of high-energy hadron collisions and the instrumental systematic effects. Notably, at the center of mass energy, $\sqrt{s} = $ 8 TeV, the archieved energy resolution of photon reconstructed from the CMS (Compact Muon Selenoid) detector is between 1$\%$ and 3$\%$~\cite{2015pho}, making the $H \rightarrow \gamma \gamma$ decay one of the golden decay channels for the Higgs boson discovery~\cite{CMS:2012qbp}.
+
+Under the CMS data policy~\cite{cmsopendata}, the CMS experiment has periodically released research grade datasets (MC and data) to the public domain; allowing scientists outside of the collaboration to study and understand the detector performance, and possibly to exploit the scientific potential of these data.
+
+The object physics are identified using various sub-detectors in the CMS detector, notably, the OBJECTS is reconstructed by signals detected in the tracker, electromagentic calorimeters and possibly hadronic calorimeters. The reconstruction efficiency is affected by the background process such as bremstrahlung and pair production of tranversing of highly energetic electrons. The simultaneous measurements of those signals provide a mean to identify the physics objects, due to the underlying effects, the identification efficiency is affected too. The situation is worsened due to the imperfection of MC generator, thus, the MC does impose some efficiency on the modelling. The total measured efficiency is a convolution of identification, reconstruction and MC efficiencies.
+
+
+
+
+
+
+%\bibliographystyle{unsrt}
+%\bibliography{Bibliography}
+\printbibliography
+
+\end{document}
