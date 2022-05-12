@@ -6,7 +6,8 @@ $(NAME):
 		pdflatex $(NAME); \
 		bibtex $(NAME); \
 		pdflatex $(NAME); \
-		pdflatex $(NAME);
+		pdflatex $(NAME); \
+                evince $(NAME).pdf;
 
 clean:
 		find . \( -name "*.toc" -o -name "*.fdb_latexmk" \

@@ -1,7 +1,9 @@
-\documentclass[bibliography=totoc]{article}
+\documentclass[]{article}
 \usepackage[utf8]{inputenc}
 \usepackage[a4paper]{geometry}
 \usepackage{graphicx}
+\usepackage{float}
+\usepackage{url}
 \usepackage{hyperref}
 \usepackage[
     hyperref=true,
@@ -16,9 +18,20 @@
     sorting=none
 ]{biblatex}
 \bibliography{references.bib}
-\AtEveryBibitem{\clearfield{pages}}
 
-\title{Bachelor Thesis Proposal : \\ The Study of Physics Object Measurements using Tag and Probe Method With CMS Open Data}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{pgfgantt}
+\makeatletter
+\def\pgfcalendarmonthsingleletter#1{%
+  \pgfutil@translate{\ifcase#1\or J\or F\or M\or A\or
+    M\or J\or J\or A\or S\or O\or
+    N\or D\fi}%
+}
+
+\makeatother
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\title{Bachelor Thesis Proposal : \\ The Study of Physics Object Measurements using Tag-and-Probe Method With CMS Open Data}
 \author{Siew-Yan Hoh}
 \date{\today}
 
@@ -28,59 +41,168 @@
 
 \section{Executive Summary of the Research Proposal}
 
-Precision measurements of standard model (SM) processes at the Large Hadron Collider (LHC) made tremendous progress in recent years~\cite{ATLAS:2016nqi,CMS:2014pkt,CMS:2013hon,ATLAS:2016rnf,ATLAS:2015iiu}. Notably, the per-mil precision archieved is attributed to the technological advancement of Monte Carlo (MC) generators and the detector calibration technique used to improve the modelling of high-energy hadron collisions and the instrumental systematic effects. Notably, at the center of mass energy, $\sqrt{s} = $ 8 TeV, the archieved energy resolution of photon reconstructed from the CMS (Compact Muon Selenoid) detector is between 1$\%$ and 3$\%$~\cite{2015pho}, making the $H \rightarrow \gamma \gamma$ decay one of the golden decay channels for the Higgs boson discovery~\cite{CMS:2012qbp}.
+Precision measurements of standard model (SM) processes at the Large Hadron Collider (LHC) made tremendous progress in recent years~\cite{ATLAS:2016nqi,CMS:2014pkt,CMS:2013hon,ATLAS:2016rnf,ATLAS:2015iiu}. Remarkably, the per-mil precision archieved is attributed to the technological advancement of Monte Carlo (MC) generators and the detector calibration technique used to improve the modelling of high-energy hadron collisions and the instrumental systematic effects. It is worth mentioning that during RUN-I, the archieved energy resolution of photon reconstructed from the CMS (Compact Muon Selenoid) detector is between 1$\%$ and 3$\%$~\cite{2015pho}, making the $H \rightarrow \gamma \gamma$ decay one of the golden decay channels for the Higgs boson discovery~\cite{CMS:2012qbp}.
 
-Under the CMS data policy~\cite{cmsopendata}, the CMS experiment has periodically released research grade datasets (MC and data) to the public domain; allowing scientists outside of the collaboration to study and understand the detector performance, and possibly to exploit the scientific potential of these data. The open data initiative also provide a fertile ground to nurture and train students to perform data analysis on measuring physics processes and physics object performance, thus forging and installing High Energy Physics (HEP) data analysis skill capability among young students in Malaysia.
+Under the CMS data policy~\cite{cmsopendata}, the CMS experiment has periodically released research-grade datasets (MC and data) to the public domain; allowing scientists outside of the collaboration to study and understand the detector performance, and possibly to exploit the scientific potential of these data. The open data initiative also provide a fertile ground to nurture and train students to perform data analysis on measuring physics processes and physics object performance, thus forging and installing High Energy Physics (HEP) data analysis skill capability among young students in Malaysia.
 
-One of the instrumental systematic effects are originating from the physics objects used in the measurement; the physics objects are reconstructed and identified via several sub-detection system in the CMS detector. Depending on the the type of physics objects, thier reconstruction and identification efficiencies are affected by the background processes associated with it.
+One of the instrumental systematic effects are originating from the Physics Objects used in the measurement; the Physics Objects are reconstructed and identified via several sub-detection system in the CMS detector. Depending on the the type of physics objects, thier reconstruction, identification as well as selection efficiencies are affected by the background processes associated with it.
 
-This study will demonstrate the application of common HEP data analysis method, the tag and probe technique~\cite{Behnke:1517556}, to study the Physics Objects performance using CMS open data collected at the centre of mass energy $\sqrt{s} =$ 8 TeV, corresponding to the integrated luminosity of 1.8 $fb^{-1}$.
+This study will demonstrate the application of common HEP data analysis method, the Tag-and-Probe technique~\cite{Behnke:1517556}, to study the Physics Objects performance using CMS open data collected at the centre of mass energy $\sqrt{s} =$ 8 TeV, corresponding to the integrated luminosity of 1.8 $fb^{-1}$.
 
-The objectives of the study are to demonstrate the possibility to performing HEP data analysis using CMS open data on the current computational setup; to study the reconstruction and identification efficiencies of the Physics Object; to derive the scale factors and the associated uncertainties to account for the MC inefficiency used to model the data; and to validate and provide those Physics Object's scale factors for full-fledge physics process measurement in the near future.
+The objectives of the study are to demonstrate the possibility to performing HEP data analysis using CMS open data on the current computational setup; to study the selection efficiency of the Physics Object; to derive the scale factors and the associated uncertainties to account for the selection inefficiency on MC modelling; and to validate and provide those Physics Object's scale factors for full-fledge physics process measurement in the near future.
 
 The expected outcomes of this study are the successful demonstration of the current setup is capable to perform offline HEP data analysis using CMS open data, and to provide outlook on the improvement in term of computational resources for long term HEP study; establishment of HEP workflow to carry out physics object performance study; provide meaningful scale factor for data and MC correction; and to promote young Malaysian students to participate in frontier research such as experimental particle physics.
 
 \section{Detailed Research Proposal}
-\subsection{Research Background Study}
+\subsection{Research Background Information}
 
-bla bla
+The open-source model perpetuated by CERN ever since the release of World Wide Web software in 1994 is a testimony of CERN's dedication on promoting open-science policy~\cite{cernopendata}. The CMS Open Data project~\cite{Lassila-Perini:2021xzn} offers new opportunities to perform multitude of HEP analysis studies, ranging from cross section measurment of the SM processes, Physics Objects performance studies to computational benchmarking and scalability studies. The project breath a new life into the HEP research domain, focusing on the reproducibility of the HEP analysis, thus providing a mean for physics result validation.
+
+Malaysia was officially accepted into the CMS Collaboration on 20 October 2013~\cite{cmsmalay}, the collaboration has successfully produced several Malaysian young scientists in frontier research such as experimental particle physics in the past years. However, the local HEP research effort is not optimally organized due to the poor structural coordination, inadequate man(woman) powers and the limited availability of pedagogical materials (lecture notes, coding examples, etc) in the local university due to social economical factors. Therefore, it is high time to establish a nurture ground in Malaysia, such as protoyping a minimalistic HEP analytical model using CMS Open Data, to be used to train, promote and encourage young Malaysian students to participate in frontier research.
+
+The Tag-and-Probe is a data-driven method used to estimate the efficiency of an event selection on the data or simulation, based on a known resonance such as the $J/\psi$, or the Z boson. The final state decayed from those resonances is used as a handle to perform non-bais measurement on how many lepton (assuming $Z \rightarrow l l$, where $l$ is lepton) passes the event selection pertaining the invariant mass of the Z boson. The Tag-and-Probe study is ideal to be used as an application on Open Data datasets as the method is self-contained and pedagogical.
+
+The proposed research is to rehash the Tag-and-Probe workflow on the open data datasets, using the current computational resource in Nuclear Science program, to demonstrate the feasibility of the current computational and analytical models, and the reproducibility of the HEP analysis results.
+
+The proposed research can be used as a case study, providing useful comments and feedbacks on develoment of HEP capablity in Malaysia.
 
 \subsubsection{Problem Statement}
 
+The CMS experiment releases research quality datasets (Open Data) periodically, allowing scientists outside of the collaboration to explore the scientific potential of the Open Data. In particular, the Tag-and-Probe method is a Physics Object specific study used to evaluate the correction factor incurred by the MC selection efficiency. The study is a self-contained and pedagogical, it is deemed suitable to be used to benchmark on the current computational setup. The working example will be assessed if it is suitable to use for develop local experimental HEP capability.
+
 \subsubsection{Research Significance}
+
+The successful demonstration of HEP workflow using the designed analytical model implies the current computational model is feasible to be used for pedagogical purposes. Students will be exposed to the Tag-and-Probe technique used in experimental particle physics research such as CMS experiment, which is crucial in a full fledge physics analysis. On the physics's aspect, the scale factor measured using CMS Open Data can be used as a correction factor for physics analysis.
+
+To explore this possibility, the proposed research is to design an analytical model to compute the MC event efficiency and the scale factors, on the current computational setup, using the CMS Open Data collected at $\sqrt{s} =$ 8 TeV corresponding to the integrated luminosity of 1.8 $fb^{-1}$.
 
 \subsubsection{Research Hypotheses}
 
+The problem statements beg to validate the following hypotheses:
+
+\begin{enumerate}
+  \item the computational and analytical models proposed for the offline HEP data analysis performed optimally,
+  \item the Tag-and-Probe study is suitable to be used for pedagogical material,
+  \item computation of Physics Objects reconstruction and identification efficiencies is feasible using CMS Open Data,
+  \item the derived scale factors and thier associated systematics uncertainties are compatible to published results.
+
+\end{enumerate}
+
 \subsubsection{Research Questions}
+
+The research questions are:
+\begin{enumerate}
+  \item does the current computational setup favourable for offline HEP data analysis, using CMS Open Data,
+  \item how to use HEP data analysis such as Tag-and-Probe study as pedagogical materials for a class, to develop local experimental HEP capability,
+  \item is the Physics Objects reconstruction and identification efficiencies computation feasible using CMS Open Data,
+  \item is the derived scale factors and thier associated systematics uncertainties compatible to published results.
+\end{enumerate}
 
 \subsubsection{Literature Review}
 
+The first data release of the CMS experiment was announced in 2014, bringing research-quality particle collision data into the public domain for the first time. Regular releases of CMS data have taken place ever since with modalities as defined in the data preservation, re-use and open access policy~\cite{cmsopendata}. As of 2021, more than 2 PB of data from the 2010-2012 run period are available to users external to the CMS collaboration, served through the CERN Open data portal (CODP)~\cite{opendataportal}.
+
+The first research papers using CMS open data were published in 2017 on jet substructure
+studies~\cite{Tripathee:2017ybi,Larkoski:2017bvj}, and authors included valuable feedback and advice to the community. Further studies have been performed including searches for new particles~\cite{Cesarotti:2019nax,Lester:2019bso}, Standard Model analyses~\cite{Apyan:2019ybx}, and several studies on machine learning and methodology.
+
+CMS releases a full reprocessing of data from each data-taking period in the Analysis Object Data (AOD) format, based on the ROOT framework~\cite{Brun:1997pa} and processed through CMS software CMSSW~\cite{cmssw}. The data are made available in the format and with the same data quality requirements that analyses of the CMS collaboration start from. AOD is the main format used in CMS for Run-1 (2010–2012) data analysis. Starting from Run-2 (2015–2018), new reduced data formats called MiniAOD~\cite{Petrucciani:2015gjw} and NanoAOD~\cite{Ehataht:2020ebp} have been developed, and Run-2 data will be released in these slimmer formats.
+
+The collision data are stored in "primary datasets" based on the event content identified at the time of data taking. The dataset name is an indication of its physics content, and each dataset record lists of the selection algorithms, the High-Level Trigger (HLT) streams, that were used to direct the data to that specific dataset. On the other hand, the simulated datasets are generated by MC generator programs, undergo detector simulation using CMSSW, and are subsequently processed into the same format as the collision data. During this processing chain, additional events are added on top of the simulated
+process to take into account the pile-up in the same beam crossing. The dataset names are identical to those used internally in CMS, and give an indication of the simulated process.
+
+The CMS software, CMSSW, is open source and available on GitHub~\cite{cmssw}. It is also accessible to the CMS open data environment through the CernVM file system (CVMFS)~\cite{blomer_jakob_2020_4114078}. This software is used for data taking, event reprocessing, and analysis, as well as for the generation of simulated events.
+
+The Tag and Probe method~\cite{Behnke:1517556} is a data-driven technique for measuring particle detection efficiencies. It is based on the decays of known resonances to pairs of the particles being studied. The pair, with one designated as Tag particle, defined as well identified, triggered Physics Object (tight selection criteria); and the other one designated as Probe particle, defining a unbiased set of Physics Object candidates (very loose selection criteria), either passing or failing the criteria for which the efficiency is to be measured. The efficiency is given by the fraction of Probe particle that pass a given criteria:
+
+\begin{equation}
+  \epsilon = \frac{\mbox{Passing probe physics object criteria}}{\mbox{All probe particle}}
+\end{equation}
+
+The denominator corresponds to the number of resonance candidates (tag+probe pairs) reconstructed in the dataset. The numerator corresponds to the subset for which the probe passes the criteria.
+
+The tag+probe invariant mass distribution is used to select only signal, that is, only true $J/\psi$ or $Z$ candidates decaying to dimuons. This is achieved in this exercise by the usage of two methods: fitting and side-band-subtraction.
+
+The determination of the detector efficiency is a critical ingredient in any physics measurement. It accounts for the particles that were produced in the collision but escaped detection (did not reach the detector elements, were missed by the reconstructions algorithms, etc). It can be in general estimated using simulations, but simulations need to be calibrated with data. The Tag-and-Probe method here described provides a useful and elegant mechanism for extracting efficiencies directly from data!
+
+
 %\bibliographystyle{unsrt}
 %\bibliography{Bibliography}
-\printbibliography
+\printbibliography[heading=none]
 
 \subsection{Research Objectives}
 
 The research objectives are:
 \begin{enumerate}
-  \item bla
-  \item bla
+  \item to design a minimalistic HEP analytical model, used to assess the current computational setup,
+  \item to design a user friendly analytical method to promote HEP data analysis among young student,
+  \item to calculate the Physics Objects reconstruction and identification efficiencies,
+  \item to derive Physics Objects scale factors and thier associated systematics uncertainties.
 \end{enumerate}
 
 \subsection{Research Methodology}
 
+Analysis of the CMS data is most commonly done in two steps: first, selecting events of interest and writing them to a new, smaller format, and second, analysing the selected events.
+
+Due to the experiment-specific data format, the first step will almost inevitably be done using the CMS software CMSSW in a computing environment compatible with the open data. For a realistic physics analysis, this step usually consists of hundreds of jobs, each taking several CPU hours. The analysts then have the option of either remaining in the open data environment, or moving their data out of the open data portal to their own computers for subsequent processing and optimization.
+
+In the second step, an offline data analysis will be performed on the processed datasets; the institutional computational capability will be put into test. Conventionally, processed datasets are transferred locally into the workstation or equivalent, and user will write a macro or compiled code using ROOT to perform event selection and analyse the selected event.
+
+For the estimation of the Physics Object identification selection efficiency, the tag is chosen to be
+a well identified and isolated Physics Object, while the probe is chosen as a Physics Object identified with loose selections. The invariant mass of the tag-probe pair is required to be within a window around the Z boson mass (the effect of changing the Z mass window is included as a systematic uncertainty). After that, the probe is required to pass the analysis identification selections and the efficiency is computed both in data and simulation.
+
+Both the lepton identification and the lepton isolation selection efficiencies are measured by the fitting method~\cite{Behnke:1517556}, to take into account the combinatorial background below the resonance peak. The signal plus background fit to the invariant mass distribution is performed simultaneously in two categories, corresponding to events in which the probe lepton passes or fails the
+identification requirements, and separately in bins of transverse momentum, $p_{T}$ and peusedorapidity $\eta$.
+
+The identification selection on Physics Object resulted in different efficiency in data and simulation. These differences are corrected by a scale factor defined as a function of lepton $p_{T}$ and $\eta$ respectively,
+
+Finally, the feasibility on the computational and analyical setup is assessed in term of the PC walltime.
+
 \subsection{Expected Research Outcome}
 
 \begin{enumerate}
-  \item New theoretical finding:
-  \item Specific application or potential research:
-  \item Social economic impact:
+  \item New theoretical finding: None
+  \item Specific application or potential research: Demonstration of Physics Object measurement using Open Data
+  \item Social economic impact: None
 \end{enumerate}
 
 \section{Equipment and Materials Access}
 
+\begin{table}[H]
+\centering
+\begin{tabular}{|c|c|}
+\hline
+Equipment                        & Location                 \\ \hline
+Hyper-Performance Computer (HPC) & CERN                     \\ \hline
+1 node Server                    & Nuclear Science Building \\ \hline
+Workstation                      & Nuclear Science Building \\ \hline
+laptop                           & Personal                 \\ \hline
+\end{tabular}
+\end{table}
+
 \section{Gantt Chart}
 
+% https://mirrors.tuna.tsinghua.edu.cn/CTAN/graphics/pgf/contrib/pgfgantt/pgfgantt.pdf
+
+%to design a minimalistic HEP analytical model, used to assess the current computational setup,
+%to design a user friendly analytical method to promote HEP data analysis among young student,
+%to calculate the Physics Objects reconstruction and identification efficiencies,
+%to derive Physics Objects scale factors and thier associated systematics uncertainties.
+
+\centering
+\begin{ganttchart}[
+    hgrid,
+    vgrid,
+    time slot format=isodate-yearmonth,
+    time slot unit=month
+    ]{2022-03}{2023-02}
+    \gantttitlecalendar{year, month=singleletter} \\
+    \ganttgroup[]{Kajian kepustakaan}{2022-03}{2022-05} \\
+    \ganttgroup[]{Pengesahan penyeliaan dan penentuan tajuk}{2022-03}{2022-05} \\
+    \ganttgroup[]{Pemahaman tajuk, rasional dan objektif}{2022-03}{2022-05} \\
+    \ganttgroup[]{Pemahaman kaedah dan mekanisma penghasilan}{2022-03}{2022-05} \\
+
+
+\end{ganttchart}
 
 
 \end{document}
