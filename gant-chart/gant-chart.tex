@@ -1,0 +1,44 @@
+\documentclass[border=5mm,dvipsnames]{standalone}
+\usepackage{pgfgantt,ragged2e}
+\tikzset{
+  labelnode/.style={text width=6.5cm,align=right,font=\RaggedLeft, left=7pt}
+}
+
+\begin{document}
+
+\centering
+\begin{ganttchart}[
+    hgrid,
+    vgrid,
+    time slot format=isodate-yearmonth,
+    time slot unit=month,
+    milestone label node/.style={labelnode},
+    milestone/.append style={fill=red},
+    bar label node/.style={labelnode},
+    bar/.append style={fill=OliveGreen}
+    ]{2022-03}{2024-02}
+    \gantttitlecalendar{year, month=singleletter} \\
+    \ganttbar[]{Literature Review}{2022-03}{2022-06} \\
+    \ganttbar[]{EPOCH installation on HPC and workstation}{2022-04}{2022-06}
+    \ganttnewline
+    \ganttmilestone[]{Milestone 1}{2022-06}
+    \ganttnewline
+    \ganttbar[]{Electron acceleration mechanism simulation with and without QED processes}{2022-07}{2022-10} \\
+    \ganttbar[]{Simulated datasets analysis and interpretation}{2022-09}{2022-12}
+    \ganttnewline
+    \ganttmilestone[]{Milestone 2}{2022-12}
+    \ganttnewline
+    \ganttbar[]{Multi-dimensional scan on on laser intensity and nano-structured geometry}{2023-01}{2023-05}
+    \ganttnewline
+    \ganttmilestone[]{Milestone 3}{2023-05}
+    \ganttnewline
+    \ganttbar[]{3D high resolution simulation with optimized parameters}{2023-06}{2023-12}
+    \ganttnewline
+    \ganttmilestone[]{Milestone 4}{2023-12}
+    \ganttnewline
+    \ganttbar[]{Writing up thesis}{2023-03}{2024-01}
+    \ganttnewline
+    \ganttmilestone[]{Milestone 5}{2024-01}
+\end{ganttchart}
+
+\end{document}
